@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция myDryerBot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --sidebar-collapsed-width: 70px;
+            --header-height: 60px;
+            --primary-color: #4285f4;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+            --shadow-color: rgba(0,0,0,0.1);
+            --sidebar-bg: #2c3e50;
+            --sidebar-text: #fff;
+            --sidebar-hover: #34495e;
+            --sidebar-active: #3498db;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 20px 0;
+            transition: width var(--transition-speed) ease;
+            z-index: 1000;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar.collapsed {
+            width: var(--sidebar-collapsed-width);
+        }
+        
+        .sidebar.collapsed .sidebar-header h2,
+        .sidebar.collapsed .sidebar-link-text,
+        .sidebar.collapsed .sidebar-submenu {
+            display: none;
+        }
+        
+        .sidebar.collapsed .sidebar-link {
+            justify-content: center;
+        }
+        
+        .sidebar.collapsed .sidebar-menu li {
+            position: relative;
+        }
+        
+        .sidebar.collapsed .sidebar-menu li:hover .sidebar-submenu {
+            display: block;
+            position: absolute;
+            left: var(--sidebar-collapsed-width);
+            top: 0;
+            width: 200px;
+            background-color: var(--sidebar-bg);
+            border-radius: 0 5px 5px 0;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .sidebar-header {
+            padding: 0 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+        
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--sidebar-text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            position: relative;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            white-space: nowrap;
+        }
+        
+        .sidebar-link:hover {
+            background-color: var(--sidebar-hover);
+        }
+        
+        .sidebar-menu li.active > .sidebar-link {
+            background-color: var(--sidebar-active);
+        }
+        
+        .sidebar-icon {
+            font-size: 1.1rem;
+            margin-right: 15px;
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-link-text {
+            transition: opacity var(--transition-speed);
+        }
+        
+        .sidebar-submenu {
+            list-style: none;
+            padding-left: 40px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed) ease;
+        }
+        
+        .sidebar-menu li.active .sidebar-submenu {
+            max-height: 500px;
+        }
+        
+        .sidebar-submenu li a {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-submenu li a:hover {
+            color: white;
+        }
+        
+        /* Main content styles */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            transition: margin-left var(--transition-speed) ease;
+            min-height: 100vh;
+            background-color: white;
+        }
+        
+        .main-content.collapsed {
+            margin-left: var(--sidebar-collapsed-width);
+        }
+        
+        /* Header styles */
+        .header {
+            position: sticky;
+            top: 0;
+            height: var(--header-height);
+            background-color: white;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 100;
+        }
+        
+        .menu-toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 20px;
+            color: var(--primary-color);
+            display: none;
+        }
+        
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Content styles */
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            color: #2c3e50;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ol, ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Screenshot styles */
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            margin: 15px 0;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            border-radius: 4px;
+        }
+        
+        /* Note styles */
+        .note {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .note strong {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+                z-index: 1001;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .sidebar.collapsed {
+                width: var(--sidebar-width);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .main-content.collapsed {
+                margin-left: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .toggle-btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-robot sidebar-icon"></i> myDryerBot</h2>
+            <button class="toggle-btn" id="toggleSidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="#section-intro" class="sidebar-link">
+                    <i class="fas fa-home sidebar-icon"></i>
+                    <span class="sidebar-link-text">Введение</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-connection">
+                            <i class="fas fa-wifi submenu-icon"></i>
+                            <span>Подключение</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-interface">
+                            <i class="fas fa-desktop submenu-icon"></i>
+                            <span>Интерфейс</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#section-programs" class="sidebar-link">
+                    <i class="fas fa-list-alt sidebar-icon"></i>
+                    <span class="sidebar-link-text">Программы</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-presets">
+                            <i class="fas fa-cubes submenu-icon"></i>
+                            <span>Предустановки</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-custom">
+                            <i class="fas fa-user-cog submenu-icon"></i>
+                            <span>Своя программа</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#section-modes" class="sidebar-link">
+                    <i class="fas fa-tasks sidebar-icon"></i>
+                    <span class="sidebar-link-text">Режимы работы</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-auto">
+                            <i class="fas fa-cogs submenu-icon"></i>
+                            <span>Автоматический</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-dry">
+                            <i class="fas fa-sun submenu-icon"></i>
+                            <span>Сушка</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-humidity">
+                            <i class="fas fa-tint submenu-icon"></i>
+                            <span>Поддержание</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-manual">
+                            <i class="fas fa-hand-paper submenu-icon"></i>
+                            <span>Ручной</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#section-settings" class="sidebar-link">
+                    <i class="fas fa-cog sidebar-icon"></i>
+                    <span class="sidebar-link-text">Настройки</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-pid">
+                            <i class="fas fa-sliders-h submenu-icon"></i>
+                            <span>PID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-sensors">
+                            <i class="fas fa-microchip submenu-icon"></i>
+                            <span>Датчики</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-timer">
+                            <i class="fas fa-clock submenu-icon"></i>
+                            <span>Таймер</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#section-control" class="sidebar-link">
+                    <i class="fas fa-gamepad sidebar-icon"></i>
+                    <span class="sidebar-link-text">Управление</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-start">
+                            <i class="fas fa-play submenu-icon"></i>
+                            <span>Запуск</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-pause">
+                            <i class="fas fa-pause submenu-icon"></i>
+                            <span>Пауза/Стоп</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-indication">
+                            <i class="fas fa-lightbulb submenu-icon"></i>
+                            <span>Индикация</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#section-troubleshooting" class="sidebar-link">
+                    <i class="fas fa-tools sidebar-icon"></i>
+                    <span class="sidebar-link-text">Неисправности</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#subsection-errors">
+                            <i class="fas fa-exclamation-triangle submenu-icon"></i>
+                            <span>Ошибки</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subsection-restart">
+                            <i class="fas fa-power-off submenu-icon"></i>
+                            <span>Перезагрузка</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <div class="menu-toggle" id="mobileMenuToggle">☰</div>
+            <div class="header-title">Инструкция по управлению myDryerBot</div>
+        </header>
+
+        <div class="content">
+            <!-- Introduction Section -->
+            <section id="section-intro" class="section">
+                <h1><i class="fas fa-home"></i> Введение</h1>
+                <p>myDryerBot - это интеллектуальная сушилка для филамента с PID-регулированием температуры и поддержанием влажности.</p>
+                
+                <div id="subsection-connection">
+                    <h2><i class="fas fa-wifi"></i> Подключение устройства</h2>
+                    <ol>
+                        <li>Подключите устройство к источнику питания</li>
+                        <li>Дождитесь инициализации (синий светодиод загорится постоянно)</li>
+                        <li>Подключитесь к Wi-Fi сети "myDryerBot" (пароль: nik170978)</li>
+                        <li>Откройте браузер и перейдите по адресу, который отобразится в приложении</li>
+                        <li>Введите пароль для доступа: <strong>nik1709</strong></li>
+                    </ol>
+                    <img src="screenshots/wifi_connect.jpg" alt="Подключение к Wi-Fi" class="screenshot">
+                    
+                    <div class="note">
+                        <strong><i class="fas fa-info-circle"></i> Примечание:</strong> Для постоянной работы рекомендуется подключить устройство к вашей домашней Wi-Fi сети через раздел настроек.
+                    </div>
+                </div>
+                
+                <div id="subsection-interface">
+                    <h2><i class="fas fa-desktop"></i> Основной интерфейс</h2>
+                    <p>Главный экран содержит следующие элементы управления:</p>
+                    <ul>
+                        <li>Текущие показания температуры и влажности</li>
+                        <li>Кнопки управления процессом (Пуск/Пауза/Стоп)</li>
+                        <li>Выбор программы и режима работы</li>
+                        <li>Индикация состояния</li>
+                    </ul>
+                    <img src="screenshots/main_interface.jpg" alt="Главный интерфейс" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Programs Section -->
+            <section id="section-programs" class="section">
+                <h1><i class="fas fa-list-alt"></i> Программы сушки</h1>
+                <p>Устройство содержит предустановленные программы для различных типов филамента и возможность создания собственных программ.</p>
+                
+                <div id="subsection-presets">
+                    <h2><i class="fas fa-cubes"></i> Предустановленные программы</h2>
+                    <p>Доступны следующие программы:</p>
+                    <ul>
+                        <li><strong>PLA</strong>: 50°C, 15% влажности, 3 часа</li>
+                        <li><strong>PETG</strong>: 70°C, 15% влажности, 3 часа</li>
+                        <li><strong>PA</strong>: 80°C, 15% влажности, 3 часа</li>
+                        <li><strong>ABS</strong>: 85°C, 15% влажности, 3 часа</li>
+                        <li><strong>TPU</strong>: 60°C, 15% влажности, 3 часа</li>
+                        <li>И другие материалы (PVA, PP, ASA)</li>
+                    </ul>
+                    <img src="screenshots/program_select.jpg" alt="Выбор программы" class="screenshot">
+                </div>
+                
+                <div id="subsection-custom">
+                    <h2><i class="fas fa-user-cog"></i> Собственная программа</h2>
+                    <p>Для создания индивидуальной программы:</p>
+                    <ol>
+                        <li>Перейдите в раздел "Моя программа"</li>
+                        <li>Установите желаемую температуру (0-120°C)</li>
+                        <li>Задайте уровень влажности (0-50%)</li>
+                        <li>Установите время работы</li>
+                        <li>Сохраните настройки</li>
+                    </ol>
+                    <img src="screenshots/custom_program.jpg" alt="Создание своей программы" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Modes Section -->
+            <section id="section-modes" class="section">
+                <h1><i class="fas fa-tasks"></i> Режимы работы</h1>
+                
+                <div id="subsection-auto">
+                    <h2><i class="fas fa-cogs"></i> Автоматический режим</h2>
+                    <p>Полный цикл: сушка + поддержание влажности.</p>
+                    <ol>
+                        <li>Выберите "Авто" в разделе "Выбор режима"</li>
+                        <li>Выберите материал из списка</li>
+                        <li>Нажмите "Пуск"</li>
+                    </ol>
+                    <img src="screenshots/auto_mode.jpg" alt="Автоматический режим" class="screenshot">
+                </div>
+                
+                <div id="subsection-dry">
+                    <h2><i class="fas fa-sun"></i> Режим сушки</h2>
+                    <p>Только процесс сушки без поддержания влажности.</p>
+                    <ol>
+                        <li>Выберите "Сушка" в режимах</li>
+                        <li>Выберите материал</li>
+                        <li>Нажмите "Пуск"</li>
+                    </ol>
+                </div>
+                
+                <div id="subsection-humidity">
+                    <h2><i class="fas fa-tint"></i> Режим поддержания</h2>
+                    <p>Только контроль влажности без предварительной сушки.</p>
+                    <ol>
+                        <li>Выберите "Поддержание" в режимах</li>
+                        <li>Выберите материал</li>
+                        <li>Нажмите "Пуск"</li>
+                    </ol>
+                </div>
+                
+                <div id="subsection-manual">
+                    <h2><i class="fas fa-hand-paper"></i> Ручной режим</h2>
+                    <p>Полный контроль всех параметров.</p>
+                    <ol>
+                        <li>Выберите "Ручной" в режимах</li>
+                        <li>Установите температуру ползунком</li>
+                        <li>Настройте скорость вентилятора</li>
+                        <li>Нажмите "Пуск"</li>
+                    </ol>
+                    <img src="screenshots/manual_mode.jpg" alt="Ручной режим" class="screenshot">
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="section-settings" class="section">
+                <h1><i class="fas fa-cog"></i> Дополнительные настройки</h1>
+                
+                <div id="subsection-pid">
+                    <h2><i class="fas fa-sliders-h"></i> Настройка PID-регулятора</h2>
+                    <p>Для точной настройки температурного контроля:</p>
+                    <ol>
+                        <li>Перейдите в "Настройка PID"</li>
+                        <li>Включите автонастройку или задайте коэффициенты вручную</li>
+                        <li>P (пропорциональный) - реакция на отклонение</li>
+                        <li>I (интегральный) - устранение статической ошибки</li>
+                        <li>D (дифференциальный) - предотвращение колебаний</li>
+                    </ol>
+                    <img src="screenshots/pid_settings.jpg" alt="Настройка PID" class="screenshot">
+                </div>
+                
+                <div id="subsection-sensors">
+                    <h2><i class="fas fa-microchip"></i> Настройка датчиков</h2>
+                    <p>Управление системой безопасности:</p>
+                    <ul>
+                        <li><strong>Датчик перегрева</strong> - аварийное отключение при превышении температуры</li>
+                        <li><strong>Датчик открытия</strong> - остановка при открытии крышки</li>
+                    </ul>
+                    <img src="screenshots/sensor_settings.jpg" alt="Настройка датчиков" class="screenshot">
+                </div>
+                
+                <div id="subsection-timer">
+                    <h2><i class="fas fa-clock"></i> Таймер работы</h2>
+                    <p>Автоматическое включение/выключение по расписанию:</p>
+                    <ol>
+                        <li>Включите функцию таймера</li>
+                        <li>Установите время включения</li>
+                        <li>Задайте время выключения</li>
+                        <li>Сохраните настройки</li>
+                    </ol>
+                    <div class="note">
+                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> Для работы по таймеру устройство должно быть подключено к питанию.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Control Section -->
+            <section id="section-control" class="section">
+                <h1><i class="fas fa-gamepad"></i> Управление процессом</h1>
+                
+                <div id="subsection-start">
+                    <h2><i class="fas fa-play"></i> Запуск процесса</h2>
+                    <ol>
+                        <li>Выберите программу и режим</li>
+                        <li>Нажмите "Пуск"</li>
+                        <li>Зеленый светодиод начнет мигать</li>
+                        <li>Следите за показаниями на экране</li>
+                    </ol>
+                    <img src="screenshots/start_process.jpg" alt="Запуск процесса" class="screenshot">
+                </div>
+                
+                <div id="subsection-pause">
+                    <h2><i class="fas fa-pause"></i> Пауза и остановка</h2>
+                    <ul>
+                        <li><strong>Пауза</strong> - временная остановка с возможностью продолжения</li>
+                        <li><strong>Стоп</strong> - полное прекращение процесса</li>
+                    </ul>
+                    <div class="note">
+                        <strong><i class="fas fa-info-circle"></i> Примечание:</strong> После полной остановки процесс нельзя возобновить - требуется новый запуск.
+                    </div>
+                </div>
+                
+                <div id="subsection-indication">
+                    <h2><i class="fas fa-lightbulb"></i> Светодиодная индикация</h2>
+                    <ul>
+                        <li><span style="color:red"><i class="fas fa-exclamation-triangle"></i> Красный мигает</span> - ошибка (перегрев/открытие/датчик)</li>
+                        <li><span style="color:blue"><i class="fas fa-pause"></i> Синий мигает</span> - режим паузы</li>
+                        <li><span style="color:green"><i class="fas fa-play"></i> Зеленый мигает</span> - активный процесс</li>
+                        <li><span style="color:blue"><i class="fas fa-power-off"></i> Синий горит</span> - готовность к работе</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section id="section-troubleshooting" class="section">
+                <h1><i class="fas fa-tools"></i> Устранение неисправностей</h1>
+                
+                <div id="subsection-errors">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Ошибки и решения</h2>
+                    <div style="overflow-x: auto;">
+                        <table style="width:100%; border-collapse: collapse; margin: 20px 0; min-width: 600px;">
+                            <thead>
+                                <tr style="background-color: #f8f9fa;">
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-bug"></i> Ошибка</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-search"></i> Причина</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-wrench"></i> Решение</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Перегрев нагревателя</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Температура превысила безопасный уровень</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте вентиляцию, датчик температуры</td>
+                                </tr>
+                                <tr style="background-color: #f8f9fa;">
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Крышка открыта</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Обнаружено открытие во время работы</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Закройте крышку и перезапустите</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Ошибка измерения</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проблема с датчиком температуры/влажности</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте подключение датчика</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <img src="screenshots/error_messages.jpg" alt="Сообщения об ошибках" class="screenshot">
+                </div>
+                
+                <div id="subsection-restart">
+                    <h2><i class="fas fa-power-off"></i> Перезагрузка устройства</h2>
+                    <p>Если устройство работает нестабильно:</p>
+                    <ol>
+                        <li>Нажмите "Restart" в разделе WiFi настроек</li>
+                        <li>Или отключите питание на 10 секунд</li>
+                    </ol>
+                    <div class="note">
+                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> При перезагрузке текущий процесс будет прерван.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar collapse/expand
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (sidebar.classList.contains('collapsed')) {
+                icon.classList.remove('fa-chevron-left');
+                icon.classList.add('fa-chevron-right');
+            } else {
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-left');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        mobileToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 992) {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickOnMobileToggle = mobileToggle.contains(event.target);
+                
+                if (!isClickInsideSidebar && !isClickOnMobileToggle) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page jump
+                    history.pushState(null, null, targetId);
+                    
+                    // Close sidebar on mobile after click
+                    if (window.innerWidth <= 992) {
+                        sidebar.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Activate sidebar menu items on scroll
+        const sections = document.querySelectorAll('section');
+        const menuItems = document.querySelectorAll('.sidebar-menu li');
+        
+        function activateMenuItem() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a');
+                if (link && link.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                    
+                    // Expand parent menu if this is a submenu item
+                    const parentMenu = item.closest('.sidebar-submenu');
+                    if (parentMenu) {
+                        parentMenu.previousElementSibling.classList.add('active');
+                        parentMenu.style.maxHeight = '500px';
+                    }
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', activateMenuItem);
+        
+        // Initialize active menu item on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            activateMenuItem();
+            
+            // Auto-collapse sidebar on mobile by default
+            if (window.innerWidth <= 992) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Handle back/forward navigation
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.scrollIntoView();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

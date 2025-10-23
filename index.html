@@ -488,22 +488,21 @@
             <!-- Introduction Section -->
             <section id="section-intro" class="section">
                 <h1><i class="fas fa-home"></i> Введение</h1>
-                <p>myDryerBot - это интеллектуальная сушилка для филамента с PID-регулированием температуры и поддержанием влажности.</p>
+                <p>myDryerBot - это набор для построения собственной интеллектуальной сушилки для филамента с PID-регулированием температуры и поддержанием влажности и возможностью масштабирования на нужное количество катушек филамента (в зависимости от мощности нагревателя).</p>
+                <p></p>
                 
                 <div id="subsection-connection">
                     <h2><i class="fas fa-wifi"></i> Подключение устройства</h2>
                     <ol>
                         <li>Подключите устройство к источнику питания</li>
                         <li>Дождитесь инициализации (синий светодиод загорится постоянно)</li>
-                        <li>Подключитесь к Wi-Fi сети "myDryerBot" (пароль: nik170978)</li>
-                        <li>Откройте браузер и перейдите по адресу, который отобразится в приложении</li>
-                        <li>Введите пароль для доступа: <strong>nik1709</strong></li>
+                        <li>Подключитесь к Wi-Fi сети "myDryerBot" (пароль: drybot12345)</li>
+                        <li>Если автоматически не запустился WEB интерфейс наберите в браузере 192.168.4.1</li>
+                        <li>При повторном подключении в режиме точка-точка посмотрите IP вашего устройства в настройках.</li>
+                        <li>Введите IP в браузере телефона, планшета или компьютера подключенного к вашей локальной сети.</li>
+                        <li>В режиме точка-точка так же возможна работа.</li>
                     </ol>
-                    <img src="screenshots/wifi_connect.jpg" alt="Подключение к Wi-Fi" class="screenshot">
-                    
-                    <div class="note">
-                        <strong><i class="fas fa-info-circle"></i> Примечание:</strong> Для постоянной работы рекомендуется подключить устройство к вашей домашней Wi-Fi сети через раздел настроек.
-                    </div>
+                    <img src="screenshots/wifi_behin.png" alt="Подключение к Wi-Fi" class="screenshot">
                 </div>
                 
                 <div id="subsection-interface">
@@ -515,7 +514,7 @@
                         <li>Выбор программы и режима работы</li>
                         <li>Индикация состояния</li>
                     </ul>
-                    <img src="screenshots/main_interface.jpg" alt="Главный интерфейс" class="screenshot">
+                    <img src="screenshots/main.png" alt="Главный интерфейс" class="screenshot">
                 </div>
             </section>
 
@@ -528,34 +527,38 @@
                     <h2><i class="fas fa-cubes"></i> Предустановленные программы</h2>
                     <p>Доступны следующие программы:</p>
                     <ul>
-                        <li><strong>PLA</strong>: 50°C, 15% влажности, 3 часа</li>
-                        <li><strong>PETG</strong>: 70°C, 15% влажности, 3 часа</li>
-                        <li><strong>PA</strong>: 80°C, 15% влажности, 3 часа</li>
-                        <li><strong>ABS</strong>: 85°C, 15% влажности, 3 часа</li>
-                        <li><strong>TPU</strong>: 60°C, 15% влажности, 3 часа</li>
-                        <li>И другие материалы (PVA, PP, ASA)</li>
+                        <li><strong>PLA</strong>: 50°C, 3 часа</li>
+                        <li><strong>PETG</strong>: 70°C, 3 часа</li>
+                        <li><strong>PA</strong>: 80°C, 3 часа</li>
+                        <li><strong>ABS</strong>: 85°C, 3 часа</li>
+                        <li><strong>TPU</strong>: 60°C, 3 часа</li>
+                        <li><strong>PVA</strong>: 45°C, 3 часа</li>
+                        <li><strong>PP</strong>: 70°C, 3 часа</li>
+                        <li><strong>ASA</strong>: 85°C, 3 часа</li>
+                        <li><strong>myProgram</strong>: собственна программа </li>
                     </ul>
-                    <img src="screenshots/program_select.jpg" alt="Выбор программы" class="screenshot">
+                    <img src="screenshots/material.png" alt="Выбор программы" class="screenshot">
                 </div>
                 
                 <div id="subsection-custom">
                     <h2><i class="fas fa-user-cog"></i> Собственная программа</h2>
                     <p>Для создания индивидуальной программы:</p>
                     <ol>
-                        <li>Перейдите в раздел "Моя программа"</li>
+                        <li>Перейдите в настройки в раздел "Моя программа"</li>
                         <li>Установите желаемую температуру (0-120°C)</li>
                         <li>Задайте уровень влажности (0-50%)</li>
                         <li>Установите время работы</li>
-                        <li>Сохраните настройки</li>
+                        <li>Настройки сохранятся автоматически</li>
+                        <li>В выборе программы выберите myProgram</li>
                     </ol>
-                    <img src="screenshots/custom_program.jpg" alt="Создание своей программы" class="screenshot">
+                    <img src="screenshots/prog.png" alt="Создание своей программы" class="screenshot">
                 </div>
             </section>
 
             <!-- Modes Section -->
             <section id="section-modes" class="section">
                 <h1><i class="fas fa-tasks"></i> Режимы работы</h1>
-                
+                 <img src="screenshots/mode.png" alt="Ручной режим" class="screenshot">
                 <div id="subsection-auto">
                     <h2><i class="fas fa-cogs"></i> Автоматический режим</h2>
                     <p>Полный цикл: сушка + поддержание влажности.</p>
@@ -564,7 +567,6 @@
                         <li>Выберите материал из списка</li>
                         <li>Нажмите "Пуск"</li>
                     </ol>
-                    <img src="screenshots/auto_mode.jpg" alt="Автоматический режим" class="screenshot">
                 </div>
                 
                 <div id="subsection-dry">
@@ -596,7 +598,6 @@
                         <li>Настройте скорость вентилятора</li>
                         <li>Нажмите "Пуск"</li>
                     </ol>
-                    <img src="screenshots/manual_mode.jpg" alt="Ручной режим" class="screenshot">
                 </div>
             </section>
 
@@ -609,12 +610,15 @@
                     <p>Для точной настройки температурного контроля:</p>
                     <ol>
                         <li>Перейдите в "Настройка PID"</li>
+                        <li>Настройте скорость вращения вентилятора</li>
                         <li>Включите автонастройку или задайте коэффициенты вручную</li>
                         <li>P (пропорциональный) - реакция на отклонение</li>
                         <li>I (интегральный) - устранение статической ошибки</li>
                         <li>D (дифференциальный) - предотвращение колебаний</li>
+                        <li>Наблюдайте процесс на графике.</li>
+                        <li>Добейтесь стабильного поддержания температуры.</li>
                     </ol>
-                    <img src="screenshots/pid_settings.jpg" alt="Настройка PID" class="screenshot">
+                    <img src="screenshots/pid.png" alt="Настройка PID" class="screenshot">
                 </div>
                 
                 <div id="subsection-sensors">
@@ -624,17 +628,19 @@
                         <li><strong>Датчик перегрева</strong> - аварийное отключение при превышении температуры</li>
                         <li><strong>Датчик открытия</strong> - остановка при открытии крышки</li>
                     </ul>
-                    <img src="screenshots/sensor_settings.jpg" alt="Настройка датчиков" class="screenshot">
+                    <img src="screenshots/sens.png" alt="Настройка датчиков" class="screenshot">
                 </div>
                 
                 <div id="subsection-timer">
                     <h2><i class="fas fa-clock"></i> Таймер работы</h2>
+                    <img src="screenshots/timers.png" alt="Настройка PID" class="screenshot">
                     <p>Автоматическое включение/выключение по расписанию:</p>
                     <ol>
+                        <li>Перейдите в настройки</li>
                         <li>Включите функцию таймера</li>
                         <li>Установите время включения</li>
                         <li>Задайте время выключения</li>
-                        <li>Сохраните настройки</li>
+                        <li>Настройки сохранятся авттоматически</li>
                     </ol>
                     <div class="note">
                         <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> Для работы по таймеру устройство должно быть подключено к питанию.
@@ -651,14 +657,14 @@
                     <ol>
                         <li>Выберите программу и режим</li>
                         <li>Нажмите "Пуск"</li>
-                        <li>Зеленый светодиод начнет мигать</li>
-                        <li>Следите за показаниями на экране</li>
+                        <li>Зеленый светодиод на приборе начнет мигать</li>
                     </ol>
-                    <img src="screenshots/start_process.jpg" alt="Запуск процесса" class="screenshot">
+                    <img src="screenshots/start.png" alt="Запуск процесса" class="screenshot">
                 </div>
                 
                 <div id="subsection-pause">
                     <h2><i class="fas fa-pause"></i> Пауза и остановка</h2>
+                     
                     <ul>
                         <li><strong>Пауза</strong> - временная остановка с возможностью продолжения</li>
                         <li><strong>Стоп</strong> - полное прекращение процесса</li>
@@ -669,7 +675,7 @@
                 </div>
                 
                 <div id="subsection-indication">
-                    <h2><i class="fas fa-lightbulb"></i> Светодиодная индикация</h2>
+                    <h2><i class="fas fa-lightbulb"></i> Светодиодная индикация на приборе</h2>
                     <ul>
                         <li><span style="color:red"><i class="fas fa-exclamation-triangle"></i> Красный мигает</span> - ошибка (перегрев/открытие/датчик)</li>
                         <li><span style="color:blue"><i class="fas fa-pause"></i> Синий мигает</span> - режим паузы</li>
@@ -682,6 +688,7 @@
             <!-- Troubleshooting Section -->
             <section id="section-troubleshooting" class="section">
                 <h1><i class="fas fa-tools"></i> Устранение неисправностей</h1>
+                <p>Сообщения о ошибках появляются на экране (телефона/компьютера).</p>
                 
                 <div id="subsection-errors">
                     <h2><i class="fas fa-exclamation-triangle"></i> Ошибки и решения</h2>
@@ -698,7 +705,7 @@
                                 <tr>
                                     <td style="padding: 12px; border: 1px solid #ddd;">Перегрев нагревателя</td>
                                     <td style="padding: 12px; border: 1px solid #ddd;">Температура превысила безопасный уровень</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте вентиляцию, датчик температуры</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте вентилятор, датчик температуры</td>
                                 </tr>
                                 <tr style="background-color: #f8f9fa;">
                                     <td style="padding: 12px; border: 1px solid #ddd;">Крышка открыта</td>
@@ -713,15 +720,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <img src="screenshots/error_messages.jpg" alt="Сообщения об ошибках" class="screenshot">
                 </div>
                 
                 <div id="subsection-restart">
                     <h2><i class="fas fa-power-off"></i> Перезагрузка устройства</h2>
-                    <p>Если устройство работает нестабильно:</p>
+                    <p>Если устройство нужно перезагрузить:</p>
                     <ol>
                         <li>Нажмите "Restart" в разделе WiFi настроек</li>
-                        <li>Или отключите питание на 10 секунд</li>
+                        <li>Или отключите питание на несколько секунд</li>
                     </ol>
                     <div class="note">
                         <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> При перезагрузке текущий процесс будет прерван.

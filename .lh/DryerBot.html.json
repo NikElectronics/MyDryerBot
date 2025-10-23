@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 32,
             "patches": [
                 {
                     "date": 1753248553730,
@@ -72,6 +72,70 @@
                 {
                     "date": 1753249023397,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -338,15 +338,15 @@\n                 <ul class=\"sidebar-submenu\">\r\n                     <li>\r\n                         <a href=\"#subsection-connection\">\r\n                             <i class=\"fas fa-wifi submenu-icon\"></i>\r\n-                            <span> Подключение</span>\r\n+                            <span>_Подключение</span>\r\n                         </a>\r\n                     </li>\r\n                     <li>\r\n                         <a href=\"#subsection-interface\">\r\n                             <i class=\"fas fa-desktop submenu-icon\"></i>\r\n-                            <span> Интерфейс</span>\r\n+                            <span>_Интерфейс</span>\r\n                         </a>\r\n                     </li>\r\n                 </ul>\r\n             </li>\r\n"
+                },
+                {
+                    "date": 1761197210003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -514,9 +514,9 @@\n                         <li>Кнопки управления процессом (Пуск/Пауза/Стоп)</li>\r\n                         <li>Выбор программы и режима работы</li>\r\n                         <li>Индикация состояния</li>\r\n                     </ul>\r\n-                    <img src=\"screenshots/main_interface.jpg\" alt=\"Главный интерфейс\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/main.png\" alt=\"Главный интерфейс\" class=\"screenshot\">\r\n                 </div>\r\n             </section>\r\n \r\n             <!-- Programs Section -->\r\n"
+                },
+                {
+                    "date": 1761197624422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -498,9 +498,9 @@\n                         <li>Подключитесь к Wi-Fi сети \"myDryerBot\" (пароль: nik170978)</li>\r\n                         <li>Откройте браузер и перейдите по адресу, который отобразится в приложении</li>\r\n                         <li>Введите пароль для доступа: <strong>nik1709</strong></li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/wifi_connect.jpg\" alt=\"Подключение к Wi-Fi\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/wifi_behin.png\" alt=\"Подключение к Wi-Fi\" class=\"screenshot\">\r\n                     \r\n                     <div class=\"note\">\r\n                         <strong><i class=\"fas fa-info-circle\"></i> Примечание:</strong> Для постоянной работы рекомендуется подключить устройство к вашей домашней Wi-Fi сети через раздел настроек.\r\n                     </div>\r\n"
+                },
+                {
+                    "date": 1761197760110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -534,9 +534,9 @@\n                         <li><strong>ABS</strong>: 85°C, 15% влажности, 3 часа</li>\r\n                         <li><strong>TPU</strong>: 60°C, 15% влажности, 3 часа</li>\r\n                         <li>И другие материалы (PVA, PP, ASA)</li>\r\n                     </ul>\r\n-                    <img src=\"screenshots/program_select.jpg\" alt=\"Выбор программы\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/prog.png\" alt=\"Выбор программы\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n                 <div id=\"subsection-custom\">\r\n                     <h2><i class=\"fas fa-user-cog\"></i> Собственная программа</h2>\r\n"
+                },
+                {
+                    "date": 1761197806043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -534,9 +534,9 @@\n                         <li><strong>ABS</strong>: 85°C, 15% влажности, 3 часа</li>\r\n                         <li><strong>TPU</strong>: 60°C, 15% влажности, 3 часа</li>\r\n                         <li>И другие материалы (PVA, PP, ASA)</li>\r\n                     </ul>\r\n-                    <img src=\"screenshots/prog.png\" alt=\"Выбор программы\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/material.png\" alt=\"Выбор программы\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n                 <div id=\"subsection-custom\">\r\n                     <h2><i class=\"fas fa-user-cog\"></i> Собственная программа</h2>\r\n"
+                },
+                {
+                    "date": 1761197839084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -547,9 +547,9 @@\n                         <li>Задайте уровень влажности (0-50%)</li>\r\n                         <li>Установите время работы</li>\r\n                         <li>Сохраните настройки</li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/custom_program.jpg\" alt=\"Создание своей программы\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/prog.png\" alt=\"Создание своей программы\" class=\"screenshot\">\r\n                 </div>\r\n             </section>\r\n \r\n             <!-- Modes Section -->\r\n"
+                },
+                {
+                    "date": 1761197910894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -595,9 +595,9 @@\n                         <li>Установите температуру ползунком</li>\r\n                         <li>Настройте скорость вентилятора</li>\r\n                         <li>Нажмите \"Пуск\"</li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/manual_mode.jpg\" alt=\"Ручной режим\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/mode.png\" alt=\"Ручной режим\" class=\"screenshot\">\r\n                 </div>\r\n             </section>\r\n \r\n             <!-- Settings Section -->\r\n"
+                },
+                {
+                    "date": 1761197965041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -554,9 +554,9 @@\n \r\n             <!-- Modes Section -->\r\n             <section id=\"section-modes\" class=\"section\">\r\n                 <h1><i class=\"fas fa-tasks\"></i> Режимы работы</h1>\r\n-                \r\n+                 <img src=\"screenshots/mode.png\" alt=\"Ручной режим\" class=\"screenshot\">\r\n                 <div id=\"subsection-auto\">\r\n                     <h2><i class=\"fas fa-cogs\"></i> Автоматический режим</h2>\r\n                     <p>Полный цикл: сушка + поддержание влажности.</p>\r\n                     <ol>\r\n@@ -595,9 +595,8 @@\n                         <li>Установите температуру ползунком</li>\r\n                         <li>Настройте скорость вентилятора</li>\r\n                         <li>Нажмите \"Пуск\"</li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/mode.png\" alt=\"Ручной режим\" class=\"screenshot\">\r\n                 </div>\r\n             </section>\r\n \r\n             <!-- Settings Section -->\r\n"
+                },
+                {
+                    "date": 1761198053821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -563,9 +563,8 @@\n                         <li>Выберите \"Авто\" в разделе \"Выбор режима\"</li>\r\n                         <li>Выберите материал из списка</li>\r\n                         <li>Нажмите \"Пуск\"</li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/auto_mode.jpg\" alt=\"Автоматический режим\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n                 <div id=\"subsection-dry\">\r\n                     <h2><i class=\"fas fa-sun\"></i> Режим сушки</h2>\r\n"
+                },
+                {
+                    "date": 1761198089835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -611,9 +611,9 @@\n                         <li>P (пропорциональный) - реакция на отклонение</li>\r\n                         <li>I (интегральный) - устранение статической ошибки</li>\r\n                         <li>D (дифференциальный) - предотвращение колебаний</li>\r\n                     </ol>\r\n-                    <img src=\"screenshots/pid_settings.jpg\" alt=\"Настройка PID\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/pid.png\" alt=\"Настройка PID\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n                 <div id=\"subsection-sensors\">\r\n                     <h2><i class=\"fas fa-microchip\"></i> Настройка датчиков</h2>\r\n"
+                },
+                {
+                    "date": 1761198203412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -606,8 +606,9 @@\n                     <h2><i class=\"fas fa-sliders-h\"></i> Настройка PID-регулятора</h2>\r\n                     <p>Для точной настройки температурного контроля:</p>\r\n                     <ol>\r\n                         <li>Перейдите в \"Настройка PID\"</li>\r\n+                        <li>Настройте скорость вращения вентилятора</li>\r\n                         <li>Включите автонастройку или задайте коэффициенты вручную</li>\r\n                         <li>P (пропорциональный) - реакция на отклонение</li>\r\n                         <li>I (интегральный) - устранение статической ошибки</li>\r\n                         <li>D (дифференциальный) - предотвращение колебаний</li>\r\n"
+                },
+                {
+                    "date": 1761198315416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -622,9 +622,9 @@\n                     <ul>\r\n                         <li><strong>Датчик перегрева</strong> - аварийное отключение при превышении температуры</li>\r\n                         <li><strong>Датчик открытия</strong> - остановка при открытии крышки</li>\r\n                     </ul>\r\n-                    <img src=\"screenshots/sensor_settings.jpg\" alt=\"Настройка датчиков\" class=\"screenshot\">\r\n+                    <img src=\"screenshots/sens.png\" alt=\"Настройка датчиков\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n                 <div id=\"subsection-timer\">\r\n                     <h2><i class=\"fas fa-clock\"></i> Таймер работы</h2>\r\n"
+                },
+                {
+                    "date": 1761198572446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -611,8 +611,9 @@\n                         <li>Включите автонастройку или задайте коэффициенты вручную</li>\r\n                         <li>P (пропорциональный) - реакция на отклонение</li>\r\n                         <li>I (интегральный) - устранение статической ошибки</li>\r\n                         <li>D (дифференциальный) - предотвращение колебаний</li>\r\n+                        <li>Добейтесь стабильного поддержания температуры. Наблюдайте процесс на графике.</li>\r\n                     </ol>\r\n                     <img src=\"screenshots/pid.png\" alt=\"Настройка PID\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n"
+                },
+                {
+                    "date": 1761198625882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -611,9 +611,10 @@\n                         <li>Включите автонастройку или задайте коэффициенты вручную</li>\r\n                         <li>P (пропорциональный) - реакция на отклонение</li>\r\n                         <li>I (интегральный) - устранение статической ошибки</li>\r\n                         <li>D (дифференциальный) - предотвращение колебаний</li>\r\n-                        <li>Добейтесь стабильного поддержания температуры. Наблюдайте процесс на графике.</li>\r\n+                        <li>Наблюдайте процесс на графике.</li>\r\n+                        <li>Добейтесь стабильного поддержания температуры.</li>\r\n                     </ol>\r\n                     <img src=\"screenshots/pid.png\" alt=\"Настройка PID\" class=\"screenshot\">\r\n                 </div>\r\n                 \r\n"
+                },
+                {
+                    "date": 1761198721338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -629,8 +629,9 @@\n                 </div>\r\n                 \r\n                 <div id=\"subsection-timer\">\r\n                     <h2><i class=\"fas fa-clock\"></i> Таймер работы</h2>\r\n+                    <img src=\"screenshots/timers.png\" alt=\"Настройка PID\" class=\"screenshot\">\r\n                     <p>Автоматическое включение/выключение по расписанию:</p>\r\n                     <ol>\r\n                         <li>Включите функцию таймера</li>\r\n                         <li>Установите время включения</li>\r\n"
+                },
+                {
+                    "date": 1761198786697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -632,8 +632,9 @@\n                     <h2><i class=\"fas fa-clock\"></i> Таймер работы</h2>\r\n                     <img src=\"screenshots/timers.png\" alt=\"Настройка PID\" class=\"screenshot\">\r\n                     <p>Автоматическое включение/выключение по расписанию:</p>\r\n                     <ol>\r\n+                        <li>Перейдите в настройки</li>\r\n                         <li>Включите функцию таймера</li>\r\n                         <li>Установите время включения</li>\r\n                         <li>Задайте время выключения</li>\r\n                         <li>Сохраните настройки</li>\r\n"
+                },
+                {
+                    "date": 1761198926586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -636,9 +636,9 @@\n                         <li>Перейдите в настройки</li>\r\n                         <li>Включите функцию таймера</li>\r\n                         <li>Установите время включения</li>\r\n                         <li>Задайте время выключения</li>\r\n-                        <li>Сохраните настройки</li>\r\n+                        <li>Настройки сохранятся авттоматически</li>\r\n                     </ol>\r\n                     <div class=\"note\">\r\n                         <strong><i class=\"fas fa-exclamation-circle\"></i> Важно:</strong> Для работы по таймеру устройство должно быть подключено к питанию.\r\n                     </div>\r\n"
                 }
             ],
             "date": 1753248553730,

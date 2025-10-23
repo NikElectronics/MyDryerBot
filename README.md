@@ -1,2 +1,2 @@
 # MyDryerBot
-Сушилка для филамента
+Сушилка для филамента https://nikelectronics.github.io/MyDryerBot/

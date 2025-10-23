@@ -1,2 +1,2 @@
-# MeDryerBot
+# MyDryerBot
 Сушилка для филамента

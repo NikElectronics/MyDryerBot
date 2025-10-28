@@ -324,6 +324,49 @@
         .product-link:hover {
             background-color: #3367d6;
         }
+
+        /* Instruction link styles */
+        .instruction-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .instruction-banner h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .instruction-banner p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .instruction-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: #4285f4;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .instruction-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
         
         /* Responsive styles */
         @media (max-width: 992px) {
@@ -373,6 +416,14 @@
             
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .instruction-banner {
+                padding: 20px;
+            }
+            
+            .instruction-banner h3 {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -550,6 +601,12 @@
                             <span>_Поддержка</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#subsection-manual">
+                            <i class="fas fa-book submenu-icon"></i>
+                            <span>_Инструкция прибора</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -563,6 +620,16 @@
         </header>
 
         <div class="content">
+            <!-- Баннер с ссылкой на инструкцию прибора -->
+            <div class="instruction-banner">
+                <h3><i class="fas fa-book"></i> Полная инструкция для прибора</h3>
+                <p>Ищете подробное руководство по эксплуатации устройства myDryerBot? Ознакомьтесь с полной инструкцией, содержащей информацию о подключении, технических характеристиках и обслуживании прибора.</p>
+                <a href="controller.html" class="instruction-link">
+                    <i class="fas fa-external-link-alt"></i>
+                    Открыть инструкцию для прибора
+                </a>
+            </div>
+
             <!-- Introduction Section -->
             <section id="section-intro" class="section">
                 <h1><i class="fas fa-home"></i> Введение</h1>
@@ -842,6 +909,19 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="subsection-manual">
+                    <h2><i class="fas fa-book"></i> Инструкция для прибора</h2>
+                    <p>Для получения полной информации о подключении, технических характеристиках и обслуживании устройства myDryerBot:</p>
+                    
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <h3><i class="fas fa-book-open"></i> Полная инструкция</h3>
+                            <p>Подробное руководство по эксплуатации прибора с информацией о подключении, технических характеристиках и обслуживании.</p>
+                            <a href="controller.html" class="product-link">Открыть инструкцию</a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div id="subsection-support">
                     <h2><i class="fas fa-headset"></i> Поддержка</h2>
@@ -863,7 +943,7 @@
                         <div class="product-card">
                             <h3><i class="fas fa-envelope"></i> Техническая поддержка</h3>
                             <p>Свяжитесь с нашей службой технической поддержки для решения сложных вопросов.</p>
-                            <a href="nikelectronics78@gmail.com" class="product-link">Написать в поддержку</a>
+                            <a href="mailto:nikelectronics78@gmail.com" class="product-link">Написать в поддержку</a>
                         </div>
                     </div>
                     

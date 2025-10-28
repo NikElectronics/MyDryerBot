@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 52,
+            "activePatchIndex": 54,
             "patches": [
                 {
                     "date": 1761199537105,
@@ -216,6 +216,14 @@
                 {
                     "date": 1761302523847,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -917,9 +917,9 @@\n                     <div class=\"product-grid\">\r\n                         <div class=\"product-card\">\r\n                             <h3><i class=\"fas fa-book-open\"></i> Полная инструкция</h3>\r\n                             <p>Подробное руководство по эксплуатации прибора с информацией о подключении, технических характеристиках и обслуживании.</p>\r\n-                            <a href=\"manual.html\" class=\"product-link\">Открыть инструкцию</a>\r\n+                            <a href=\"controller.html\" class=\"product-link\">Открыть инструкцию</a>\r\n                         </div>\r\n                     </div>\r\n                 </div>\r\n                 \r\n"
+                },
+                {
+                    "date": 1761632810297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -621,10 +621,10 @@\n \r\n         <div class=\"content\">\r\n             <!-- Баннер с ссылкой на инструкцию прибора -->\r\n             <div class=\"instruction-banner\">\r\n-                <h3><i class=\"fas fa-book\"></i> Полная инструкция для прибора</h3>\r\n-                <p>Ищете подробное руководство по эксплуатации устройства myDryerBot? Ознакомьтесь с полной инструкцией, содержащей информацию о подключении, технических характеристиках и обслуживании прибора.</p>\r\n+                <h3><i class=\"fas fa-book\"></i> Инструкция по сборке сушилки</h3>\r\n+                <p>Подробное руководство по сборке сушилки myDryerBot. Ознакомьтесь перед сборкой и наладкой прибора.</p>\r\n                 <a href=\"controller.html\" class=\"instruction-link\">\r\n                     <i class=\"fas fa-external-link-alt\"></i>\r\n                     Открыть инструкцию для прибора\r\n                 </a>\r\n"
+                },
+                {
+                    "date": 1761632847723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -625,9 +625,9 @@\n                 <h3><i class=\"fas fa-book\"></i> Инструкция по сборке сушилки</h3>\r\n                 <p>Подробное руководство по сборке сушилки myDryerBot. Ознакомьтесь перед сборкой и наладкой прибора.</p>\r\n                 <a href=\"controller.html\" class=\"instruction-link\">\r\n                     <i class=\"fas fa-external-link-alt\"></i>\r\n-                    Открыть инструкцию для прибора\r\n+                    Открыть инструкцию\r\n                 </a>\r\n             </div>\r\n \r\n             <!-- Introduction Section -->\r\n"
                 }
             ],
             "date": 1761199537105,

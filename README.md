@@ -1,6 +1,6 @@
 # myDryerBot - Интеллектуальная сушилка для филамента
 
-![myDryerBot Banner](https://nikelectronics.github.io/MyDryerBot/)
+https://nikelectronics.github.io/MyDryerBot/
 
 ## 🚀 О проекте
 

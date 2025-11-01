@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +15,20 @@
             --secondary-color: #f8f9fa;
             --text-color: #333;
             --border-color: #ddd;
-            --shadow-color: rgba(0,0,0,0.1);
+            --shadow-color: rgba(0, 0, 0, 0.1);
             --sidebar-bg: #2c3e50;
             --sidebar-text: #fff;
             --sidebar-hover: #34495e;
             --sidebar-active: #3498db;
             --transition-speed: 0.3s;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -35,7 +36,7 @@
             background-color: #f5f5f5;
             overflow-x: hidden;
         }
-        
+
         /* Sidebar styles */
         .sidebar {
             position: fixed;
@@ -50,27 +51,27 @@
             z-index: 1000;
             overflow-y: auto;
             overflow-x: hidden;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .sidebar.collapsed {
             width: var(--sidebar-collapsed-width);
         }
-        
+
         .sidebar.collapsed .sidebar-header h2,
         .sidebar.collapsed .sidebar-link-text,
         .sidebar.collapsed .sidebar-submenu {
             display: none;
         }
-        
+
         .sidebar.collapsed .sidebar-link {
             justify-content: center;
         }
-        
+
         .sidebar.collapsed .sidebar-menu li {
             position: relative;
         }
-        
+
         .sidebar.collapsed .sidebar-menu li:hover .sidebar-submenu {
             display: block;
             position: absolute;
@@ -79,23 +80,23 @@
             width: 200px;
             background-color: var(--sidebar-bg);
             border-radius: 0 5px 5px 0;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
+
         .sidebar-header {
             padding: 0 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .sidebar-header h2 {
             font-size: 1.3rem;
             white-space: nowrap;
         }
-        
+
         .toggle-btn {
             background: none;
             border: none;
@@ -104,15 +105,15 @@
             cursor: pointer;
             padding: 5px;
         }
-        
+
         .sidebar-menu {
             list-style: none;
         }
-        
+
         .sidebar-menu li {
             position: relative;
         }
-        
+
         .sidebar-link {
             display: flex;
             align-items: center;
@@ -122,26 +123,26 @@
             transition: all var(--transition-speed);
             white-space: nowrap;
         }
-        
+
         .sidebar-link:hover {
             background-color: var(--sidebar-hover);
         }
-        
-        .sidebar-menu li.active > .sidebar-link {
+
+        .sidebar-menu li.active>.sidebar-link {
             background-color: var(--sidebar-active);
         }
-        
+
         .sidebar-icon {
             font-size: 1.1rem;
             margin-right: 15px;
             min-width: 20px;
             text-align: center;
         }
-        
+
         .sidebar-link-text {
             transition: opacity var(--transition-speed);
         }
-        
+
         .sidebar-submenu {
             list-style: none;
             padding-left: 40px;
@@ -149,11 +150,11 @@
             overflow: hidden;
             transition: max-height var(--transition-speed) ease;
         }
-        
+
         .sidebar-menu li.active .sidebar-submenu {
             max-height: 500px;
         }
-        
+
         .sidebar-submenu li a {
             padding: 8px 15px;
             font-size: 0.9em;
@@ -161,11 +162,11 @@
             display: flex;
             align-items: center;
         }
-        
+
         .sidebar-submenu li a:hover {
             color: white;
         }
-        
+
         /* Main content styles */
         .main-content {
             margin-left: var(--sidebar-width);
@@ -173,11 +174,11 @@
             min-height: 100vh;
             background-color: white;
         }
-        
+
         .main-content.collapsed {
             margin-left: var(--sidebar-collapsed-width);
         }
-        
+
         /* Header styles */
         .header {
             position: sticky;
@@ -190,7 +191,7 @@
             padding: 0 20px;
             z-index: 100;
         }
-        
+
         .menu-toggle {
             font-size: 1.5rem;
             cursor: pointer;
@@ -198,57 +199,58 @@
             color: var(--primary-color);
             display: none;
         }
-        
+
         .header-title {
             font-size: 1.2rem;
             font-weight: 600;
         }
-        
+
         /* Content styles */
         .content {
             padding: 30px;
         }
-        
+
         .section {
             margin-bottom: 40px;
             padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .section:last-child {
             border-bottom: none;
         }
-        
+
         h1 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--primary-color);
         }
-        
+
         h2 {
             font-size: 1.5rem;
             margin: 25px 0 15px;
             color: #2c3e50;
         }
-        
+
         h3 {
             font-size: 1.2rem;
             margin: 20px 0 10px;
         }
-        
+
         p {
             margin-bottom: 15px;
         }
-        
-        ol, ul {
+
+        ol,
+        ul {
             margin-bottom: 20px;
             padding-left: 20px;
         }
-        
+
         li {
             margin-bottom: 8px;
         }
-        
+
         /* Screenshot styles */
         .screenshot {
             max-width: 100%;
@@ -258,7 +260,7 @@
             box-shadow: 0 2px 4px var(--shadow-color);
             border-radius: 4px;
         }
-        
+
         /* Note styles */
         .note {
             background-color: var(--secondary-color);
@@ -267,11 +269,11 @@
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
         }
-        
+
         .note strong {
             color: var(--primary-color);
         }
-        
+
         /* Product card styles */
         .product-grid {
             display: grid;
@@ -279,7 +281,7 @@
             gap: 20px;
             margin: 20px 0;
         }
-        
+
         .product-card {
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -288,28 +290,28 @@
             box-shadow: 0 2px 4px var(--shadow-color);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        
+
         .product-card h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
-        
+
         .product-card h3 i {
             margin-right: 10px;
         }
-        
+
         .product-card p {
             margin-bottom: 15px;
             color: #666;
         }
-        
+
         .product-link {
             display: inline-block;
             background-color: var(--primary-color);
@@ -320,7 +322,7 @@
             font-weight: 500;
             transition: background-color 0.3s;
         }
-        
+
         .product-link:hover {
             background-color: #3367d6;
         }
@@ -333,20 +335,20 @@
             border-radius: 10px;
             margin: 25px 0;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .instruction-banner h3 {
             color: white;
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
-        
+
         .instruction-banner p {
             margin-bottom: 20px;
             font-size: 1.1rem;
         }
-        
+
         .instruction-link {
             display: inline-flex;
             align-items: center;
@@ -359,15 +361,23 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         .instruction-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
             background: #f8f9fa;
         }
-        
+
+        .note {
+            background: #f0f8ff;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
         /* Responsive styles */
         @media (max-width: 992px) {
             .sidebar {
@@ -375,59 +385,60 @@
                 width: var(--sidebar-width);
                 z-index: 1001;
             }
-            
+
             .sidebar.active {
                 transform: translateX(0);
             }
-            
+
             .sidebar.collapsed {
                 width: var(--sidebar-width);
             }
-            
+
             .main-content {
                 margin-left: 0;
             }
-            
+
             .main-content.collapsed {
                 margin-left: 0;
             }
-            
+
             .menu-toggle {
                 display: block;
             }
-            
+
             .toggle-btn {
                 display: none;
             }
         }
-        
+
         @media (max-width: 768px) {
             .content {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 1.8rem;
             }
-            
+
             h2 {
                 font-size: 1.3rem;
             }
-            
+
             .product-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .instruction-banner {
                 padding: 20px;
             }
-            
+
             .instruction-banner h3 {
                 font-size: 1.2rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
@@ -623,7 +634,8 @@
             <!-- Баннер с ссылкой на инструкцию прибора -->
             <div class="instruction-banner">
                 <h3><i class="fas fa-book"></i> Инструкция по сборке сушилки</h3>
-                <p>Подробное руководство по сборке сушилки myDryerBot. Ознакомьтесь перед сборкой и наладкой прибора.</p>
+                <p>Подробное руководство по сборке сушилки myDryerBot. Ознакомьтесь перед сборкой и наладкой прибора.
+                </p>
                 <a href="controller.html" class="instruction-link">
                     <i class="fas fa-external-link-alt"></i>
                     Открыть инструкцию
@@ -633,9 +645,13 @@
             <!-- Introduction Section -->
             <section id="section-intro" class="section">
                 <h1><i class="fas fa-home"></i> Введение</h1>
-                <p>myDryerBot - это набор для построения собственной интеллектуальной сушилки для филамента с PID-регулированием температуры и поддержанием влажности и возможностью масштабирования на нужное количество катушек филамента (в зависимости от мощности нагревателя).</p>
+                <p>myDryerBot - это набор для построения собственной интеллектуальной сушилки для филамента с
+                    PID-регулированием температуры и поддержанием влажности
+                    и возможностью масштабирования на нужное количество катушек филамента (в зависимости от мощности
+                    нагревателя). Так же с применением данного набора
+                    можно построить термокамеру для 3D принтера.</p>
                 <p></p>
-                
+
                 <div id="subsection-connection">
                     <h2><i class="fas fa-wifi"></i> Подключение устройства</h2>
                     <ol>
@@ -643,13 +659,15 @@
                         <li>Дождитесь инициализации (синий светодиод загорится постоянно)</li>
                         <li>Подключитесь к Wi-Fi сети "myDryerBot" (пароль: drybot12345)</li>
                         <li>Если автоматически не запустился WEB интерфейс наберите в браузере 192.168.4.1</li>
-                        <li>При повторном подключении в режиме точка-точка посмотрите IP вашего устройства в настройках.</li>
-                        <li>Введите IP в браузере телефона, планшета или компьютера подключенного к вашей локальной сети.</li>
+                        <li>При повторном подключении в режиме точка-точка посмотрите IP вашего устройства в настройках.
+                        </li>
+                        <li>Введите IP в браузере телефона, планшета или компьютера подключенного к вашей локальной
+                            сети.</li>
                         <li>В режиме точка-точка так же возможна работа.</li>
                     </ol>
                     <img src="screenshots/wifi_behin.png" alt="Подключение к Wi-Fi" class="screenshot">
                 </div>
-                
+
                 <div id="subsection-interface">
                     <h2><i class="fas fa-desktop"></i> Основной интерфейс</h2>
                     <p>Главный экран содержит следующие элементы управления:</p>
@@ -666,8 +684,9 @@
             <!-- Programs Section -->
             <section id="section-programs" class="section">
                 <h1><i class="fas fa-list-alt"></i> Программы сушки</h1>
-                <p>Устройство содержит предустановленные программы для различных типов филамента и возможность создания собственных программ.</p>
-                
+                <p>Устройство содержит предустановленные программы для различных типов филамента и возможность создания
+                    собственных программ.</p>
+
                 <div id="subsection-presets">
                     <h2><i class="fas fa-cubes"></i> Предустановленные программы</h2>
                     <p>Доступны следующие программы:</p>
@@ -684,7 +703,7 @@
                     </ul>
                     <img src="screenshots/material.png" alt="Выбор программы" class="screenshot">
                 </div>
-                
+
                 <div id="subsection-custom">
                     <h2><i class="fas fa-user-cog"></i> Собственная программа</h2>
                     <p>Для создания индивидуальной программы:</p>
@@ -703,7 +722,7 @@
             <!-- Modes Section -->
             <section id="section-modes" class="section">
                 <h1><i class="fas fa-tasks"></i> Режимы работы</h1>
-                 <img src="screenshots/mode.png" alt="Ручной режим" class="screenshot">
+                <img src="screenshots/mode.png" alt="Ручной режим" class="screenshot">
                 <div id="subsection-auto">
                     <h2><i class="fas fa-cogs"></i> Автоматический режим</h2>
                     <p>Полный цикл: сушка + поддержание влажности.</p>
@@ -713,7 +732,7 @@
                         <li>Нажмите "Пуск"</li>
                     </ol>
                 </div>
-                
+
                 <div id="subsection-dry">
                     <h2><i class="fas fa-sun"></i> Режим сушки</h2>
                     <p>Только процесс сушки без поддержания влажности.</p>
@@ -723,7 +742,7 @@
                         <li>Нажмите "Пуск"</li>
                     </ol>
                 </div>
-                
+
                 <div id="subsection-humidity">
                     <h2><i class="fas fa-tint"></i> Режим поддержания</h2>
                     <p>Только контроль влажности без предварительной сушки.</p>
@@ -733,7 +752,7 @@
                         <li>Нажмите "Пуск"</li>
                     </ol>
                 </div>
-                
+
                 <div id="subsection-manual">
                     <h2><i class="fas fa-hand-paper"></i> Ручной режим</h2>
                     <p>Полный контроль всех параметров.</p>
@@ -743,13 +762,16 @@
                         <li>Настройте скорость вентилятора</li>
                         <li>Нажмите "Пуск"</li>
                     </ol>
+                    <div class="note">
+                        Этот режим можно использовать при построении термокамеры для 3D принтера.
+                    </div>
                 </div>
             </section>
 
             <!-- Settings Section -->
             <section id="section-settings" class="section">
                 <h1><i class="fas fa-cog"></i> Дополнительные настройки</h1>
-                
+
                 <div id="subsection-pid">
                     <h2><i class="fas fa-sliders-h"></i> Настройка PID-регулятора</h2>
                     <p>Для точной настройки температурного контроля:</p>
@@ -765,7 +787,7 @@
                     </ol>
                     <img src="screenshots/pid.png" alt="Настройка PID" class="screenshot">
                 </div>
-                
+
                 <div id="subsection-sensors">
                     <h2><i class="fas fa-microchip"></i> Настройка датчиков</h2>
                     <p>Управление системой безопасности:</p>
@@ -775,7 +797,7 @@
                     </ul>
                     <img src="screenshots/sens.png" alt="Настройка датчиков" class="screenshot">
                 </div>
-                
+
                 <div id="subsection-timer">
                     <h2><i class="fas fa-clock"></i> Таймер работы</h2>
                     <img src="screenshots/timers.png" alt="Настройка PID" class="screenshot">
@@ -788,7 +810,8 @@
                         <li>Настройки сохранятся авттоматически</li>
                     </ol>
                     <div class="note">
-                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> Для работы по таймеру устройство должно быть подключено к питанию.
+                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> Для работы по таймеру
+                        устройство должно быть подключено к питанию.
                     </div>
                 </div>
             </section>
@@ -796,7 +819,7 @@
             <!-- Control Section -->
             <section id="section-control" class="section">
                 <h1><i class="fas fa-gamepad"></i> Управление процессом</h1>
-                
+
                 <div id="subsection-start">
                     <h2><i class="fas fa-play"></i> Запуск процесса</h2>
                     <ol>
@@ -806,26 +829,30 @@
                     </ol>
                     <img src="screenshots/start.png" alt="Запуск процесса" class="screenshot">
                 </div>
-                
+
                 <div id="subsection-pause">
                     <h2><i class="fas fa-pause"></i> Пауза и остановка</h2>
-                     
+
                     <ul>
                         <li><strong>Пауза</strong> - временная остановка с возможностью продолжения</li>
                         <li><strong>Стоп</strong> - полное прекращение процесса</li>
                     </ul>
                     <div class="note">
-                        <strong><i class="fas fa-info-circle"></i> Примечание:</strong> После полной остановки процесс нельзя возобновить - требуется новый запуск.
+                        <strong><i class="fas fa-info-circle"></i> Примечание:</strong> После полной остановки процесс
+                        нельзя возобновить - требуется новый запуск.
                     </div>
                 </div>
-                
+
                 <div id="subsection-indication">
                     <h2><i class="fas fa-lightbulb"></i> Светодиодная индикация на приборе</h2>
                     <ul>
-                        <li><span style="color:red"><i class="fas fa-exclamation-triangle"></i> Красный мигает</span> - ошибка (перегрев/открытие/датчик)</li>
+                        <li><span style="color:red"><i class="fas fa-exclamation-triangle"></i> Красный мигает</span> -
+                            ошибка (перегрев/открытие/датчик)</li>
                         <li><span style="color:blue"><i class="fas fa-pause"></i> Синий мигает</span> - режим паузы</li>
-                        <li><span style="color:green"><i class="fas fa-play"></i> Зеленый мигает</span> - активный процесс</li>
-                        <li><span style="color:blue"><i class="fas fa-power-off"></i> Синий горит</span> - готовность к работе</li>
+                        <li><span style="color:green"><i class="fas fa-play"></i> Зеленый мигает</span> - активный
+                            процесс</li>
+                        <li><span style="color:blue"><i class="fas fa-power-off"></i> Синий горит</span> - готовность к
+                            работе</li>
                     </ul>
                 </div>
             </section>
@@ -834,39 +861,48 @@
             <section id="section-troubleshooting" class="section">
                 <h1><i class="fas fa-tools"></i> Устранение неисправностей</h1>
                 <p>Сообщения о ошибках появляются на экране (телефона/компьютера).</p>
-                
+
                 <div id="subsection-errors">
                     <h2><i class="fas fa-exclamation-triangle"></i> Ошибки и решения</h2>
                     <div style="overflow-x: auto;">
                         <table style="width:100%; border-collapse: collapse; margin: 20px 0; min-width: 600px;">
                             <thead>
                                 <tr style="background-color: #f8f9fa;">
-                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-bug"></i> Ошибка</th>
-                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-search"></i> Причина</th>
-                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i class="fas fa-wrench"></i> Решение</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i
+                                            class="fas fa-bug"></i> Ошибка</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i
+                                            class="fas fa-search"></i> Причина</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;"><i
+                                            class="fas fa-wrench"></i> Решение</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td style="padding: 12px; border: 1px solid #ddd;">Перегрев нагревателя</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Температура превысила безопасный уровень</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте вентилятор, датчик температуры</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Температура превысила безопасный
+                                        уровень</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте вентилятор, датчик
+                                        температуры</td>
                                 </tr>
                                 <tr style="background-color: #f8f9fa;">
                                     <td style="padding: 12px; border: 1px solid #ddd;">Крышка открыта</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Обнаружено открытие во время работы</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Закройте крышку и перезапустите</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Обнаружено открытие во время
+                                        работы</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Закройте крышку и перезапустите
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 12px; border: 1px solid #ddd;">Ошибка измерения</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Проблема с датчиком температуры/влажности</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте подключение датчика</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проблема с датчиком
+                                        температуры/влажности</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd;">Проверьте подключение датчика
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                
+
                 <div id="subsection-restart">
                     <h2><i class="fas fa-power-off"></i> Перезагрузка устройства</h2>
                     <p>Если устройство нужно перезагрузить:</p>
@@ -875,7 +911,8 @@
                         <li>Или отключите питание на несколько секунд</li>
                     </ol>
                     <div class="note">
-                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> При перезагрузке текущий процесс будет прерван.
+                        <strong><i class="fas fa-exclamation-circle"></i> Важно:</strong> При перезагрузке текущий
+                        процесс будет прерван.
                     </div>
                 </div>
             </section>
@@ -884,24 +921,25 @@
             <section id="section-info" class="section">
                 <h1><i class="fas fa-info-circle"></i> Информация</h1>
                 <p>Здесь вы найдете информацию о наших продуктах и способы получения поддержки.</p>
-                
+
                 <div id="subsection-products">
                     <h2><i class="fas fa-box"></i> Наши продукты</h2>
                     <p>Мы разрабатываем различные решения для автоматизации. Ознакомьтесь с нашими продуктами:</p>
-                    
+
                     <div class="product-grid">
                         <div class="product-card">
                             <h3><i class="fas fa-robot"></i> myDryerBot</h3>
                             <p>Интеллектуальная сушилка для филамента.</p>
                             <a href="https://nikelectronics.github.io/MyDryerBot/" class="product-link">Подробнее</a>
                         </div>
-                        
+
                         <div class="product-card">
                             <h3><i class="fas fa-water"></i> Мой фонтан</h3>
                             <p>Система управления фонтаном.</p>
-                            <a href="https://nikelectronics.github.io/fountain_manual/" class="product-link">Подробнее</a>
+                            <a href="https://nikelectronics.github.io/fountain_manual/"
+                                class="product-link">Подробнее</a>
                         </div>
-                        
+
                         <div class="product-card">
                             <h3><i class="fas fa-battery-full"></i> ЭликсToFix</h3>
                             <p>Модуль диагностики и разблокировки аккумуляторов makita.</p>
@@ -912,43 +950,47 @@
 
                 <div id="subsection-manual">
                     <h2><i class="fas fa-book"></i> Инструкция для прибора</h2>
-                    <p>Для получения полной информации о подключении, технических характеристиках и обслуживании устройства myDryerBot:</p>
-                    
+                    <p>Для получения полной информации о подключении, технических характеристиках и обслуживании
+                        устройства myDryerBot:</p>
+
                     <div class="product-grid">
                         <div class="product-card">
                             <h3><i class="fas fa-book-open"></i> Полная инструкция</h3>
-                            <p>Подробное руководство по эксплуатации прибора с информацией о подключении, технических характеристиках и обслуживании.</p>
+                            <p>Подробное руководство по эксплуатации прибора с информацией о подключении, технических
+                                характеристиках и обслуживании.</p>
                             <a href="controller.html" class="product-link">Открыть инструкцию</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="subsection-support">
                     <h2><i class="fas fa-headset"></i> Поддержка</h2>
                     <p>Если у вас возникли вопросы или проблемы с нашими продуктами, мы готовы помочь:</p>
-                    
+
                     <div class="product-grid">
                         <div class="product-card">
                             <h3><i class="fas fa-book"></i> Документация</h3>
                             <p>Полные руководства пользователя, технические спецификации и часто задаваемые вопросы.</p>
                             <a href="#" class="product-link">В разработке</a>
                         </div>
-                        
+
                         <div class="product-card">
                             <h3><i class="fas fa-comments"></i> Форум поддержки</h3>
-                            <p>Сообщество пользователей наших продуктов, где можно задать вопросы и поделиться опытом.</p>
+                            <p>Сообщество пользователей наших продуктов, где можно задать вопросы и поделиться опытом.
+                            </p>
                             <a href="#" class="product-link">В разработке</a>
                         </div>
-                        
+
                         <div class="product-card">
                             <h3><i class="fas fa-envelope"></i> Техническая поддержка</h3>
                             <p>Свяжитесь с нашей службой технической поддержки для решения сложных вопросов.</p>
                             <a href="mailto:nikelectronics78@gmail.com" class="product-link">Написать в поддержку</a>
                         </div>
                     </div>
-                    
+
                     <div class="note">
-                        <strong><i class="fas fa-clock"></i> Время работы поддержки:</strong> Понедельник - Пятница, 9:00 - 18:00 по московскому времени.
+                        <strong><i class="fas fa-clock"></i> Время работы поддержки:</strong> Понедельник - Пятница,
+                        9:00 - 18:00 по московскому времени.
                     </div>
                 </div>
             </section>
@@ -957,10 +999,10 @@
 
     <script>
         // Toggle sidebar collapse
-        document.getElementById('toggleSidebar').addEventListener('click', function() {
+        document.getElementById('toggleSidebar').addEventListener('click', function () {
             document.querySelector('.sidebar').classList.toggle('collapsed');
             document.querySelector('.main-content').classList.toggle('collapsed');
-            
+
             // Rotate the chevron icon
             const icon = this.querySelector('i');
             if (document.querySelector('.sidebar').classList.contains('collapsed')) {
@@ -971,29 +1013,29 @@
                 icon.classList.add('fa-chevron-left');
             }
         });
-        
+
         // Mobile menu toggle
-        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+        document.getElementById('mobileMenuToggle').addEventListener('click', function () {
             document.querySelector('.sidebar').classList.toggle('active');
         });
-        
+
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 if (window.innerWidth <= 992) {
                     document.querySelector('.sidebar').classList.remove('active');
                 }
             });
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1003,22 +1045,23 @@
                 }
             });
         });
-        
+
         // Auto-expand active menu items
         document.querySelectorAll('.sidebar-menu > li').forEach(item => {
             const link = item.querySelector('.sidebar-link');
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 // Close other open menus
                 document.querySelectorAll('.sidebar-menu > li').forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle current menu
                 item.classList.toggle('active');
             });
         });
     </script>
 </body>
+
 </html>

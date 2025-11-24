@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 66,
+            "activePatchIndex": 67,
             "patches": [
                 {
                     "date": 1761199537105,
@@ -272,6 +272,10 @@
                 {
                     "date": 1763963122081,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -680,31 +680,8 @@\n                     <img src=\"screenshots/main.png\" alt=\"Главный интерфейс\" class=\"screenshot\">\r\n                 </div>\r\n             </section>\r\n \r\n-            <!-- Programs Section -->\r\n-            <!-- <section id=\"section-programs\" class=\"section\">\r\n-                <h1><i class=\"fas fa-list-alt\"></i> Программы сушки</h1>\r\n-                <p>Устройство содержит предустановленные программы для различных типов филамента и возможность создания\r\n-                    собственных программ.</p>\r\n-\r\n-                <div id=\"subsection-presets\">\r\n-                    <h2><i class=\"fas fa-cubes\"></i> Предустановленные программы</h2>\r\n-                    <p>Доступны следующие программы:</p>\r\n-                    <ul>\r\n-                        <li><strong>PLA</strong>: 50°C, 3 часа</li>\r\n-                        <li><strong>PETG</strong>: 70°C, 3 часа</li>\r\n-                        <li><strong>PA</strong>: 80°C, 3 часа</li>\r\n-                        <li><strong>ABS</strong>: 85°C, 3 часа</li>\r\n-                        <li><strong>TPU</strong>: 60°C, 3 часа</li>\r\n-                        <li><strong>PVA</strong>: 45°C, 3 часа</li>\r\n-                        <li><strong>PP</strong>: 70°C, 3 часа</li>\r\n-                        <li><strong>ASA</strong>: 85°C, 3 часа</li>\r\n-                        <li><strong>myProgram</strong>: собственна программа </li>\r\n-                    </ul>\r\n-                    <img src=\"screenshots/material.png\" alt=\"Выбор программы\" class=\"screenshot\">\r\n-                </div> -->\r\n-\r\n                 <div id=\"subsection-custom\">\r\n                     <h2><i class=\"fas fa-user-cog\"></i> Программа</h2>\r\n                     <p>Для создания программы:</p>\r\n                     <ol>\r\n"
+                },
+                {
+                    "date": 1763963522180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -904,10 +904,10 @@\n                     <p>Мы разрабатываем различные решения для автоматизации. Ознакомьтесь с нашими продуктами:</p>\r\n \r\n                     <div class=\"product-grid\">\r\n                         <div class=\"product-card\">\r\n-                            <h3><i class=\"fas fa-robot\"></i> myDryerBot</h3>\r\n-                            <p>Интеллектуальная сушилка для филамента.</p>\r\n+                            <h3><i class=\"fas fa-robot\"></i> TempBot-1000</h3>\r\n+                            <p>Интеллектуальная термокамера.</p>\r\n                             <a href=\"https://nikelectronics.github.io/MyDryerBot/\" class=\"product-link\">Подробнее</a>\r\n                         </div>\r\n \r\n                         <div class=\"product-card\">\r\n"
                 }
             ],
             "date": 1761199537105,

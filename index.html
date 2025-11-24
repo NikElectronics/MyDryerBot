@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция myDryerBot</title>
+    <title>Инструкция TempBot-1000</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -627,14 +627,14 @@
     <div class="main-content">
         <header class="header">
             <div class="menu-toggle" id="mobileMenuToggle">☰</div>
-            <div class="header-title">Инструкция по управлению myDryerBot</div>
+            <div class="header-title">Инструкция по управлению TempBot-1000</div>
         </header>
 
         <div class="content">
             <!-- Баннер с ссылкой на инструкцию прибора -->
             <div class="instruction-banner">
-                <h3><i class="fas fa-book"></i> Инструкция по сборке сушилки</h3>
-                <p>Подробное руководство по сборке сушилки myDryerBot. Ознакомьтесь перед сборкой и наладкой прибора.
+                <h3><i class="fas fa-book"></i> Инструкция по сборке термокамеры</h3>
+                <p>Подробное руководство по сборке термокамеры TempBot-1000. Ознакомьтесь перед сборкой и наладкой прибора.
                 </p>
                 <a href="controller.html" class="instruction-link">
                     <i class="fas fa-external-link-alt"></i>
@@ -645,11 +645,11 @@
             <!-- Introduction Section -->
             <section id="section-intro" class="section">
                 <h1><i class="fas fa-home"></i> Введение</h1>
-                <p>myDryerBot - это набор для построения собственной интеллектуальной сушилки для филамента с
+                <p>TempBot-1000 - это набор для построения термокамеры с
                     PID-регулированием температуры и поддержанием влажности
-                    и возможностью масштабирования на нужное количество катушек филамента (в зависимости от мощности
-                    нагревателя). Так же с применением данного набора
-                    можно построить термокамеру для 3D принтера.</p>
+                    и возможностью масштабирования (в зависимости от мощности
+                    нагревателя). Так же  с применением данного набора
+                    можно построить сушилку для филамента инкубатор и многое другое.</p>
                 <p></p>
 
                 <div id="subsection-connection">
@@ -674,39 +674,16 @@
                     <ul>
                         <li>Текущие показания температуры и влажности</li>
                         <li>Кнопки управления процессом (Пуск/Пауза/Стоп)</li>
-                        <li>Выбор программы и режима работы</li>
+                        <li>Выбор режима работы</li>
                         <li>Индикация состояния</li>
                     </ul>
                     <img src="screenshots/main.png" alt="Главный интерфейс" class="screenshot">
                 </div>
             </section>
 
-            <!-- Programs Section -->
-            <section id="section-programs" class="section">
-                <h1><i class="fas fa-list-alt"></i> Программы сушки</h1>
-                <p>Устройство содержит предустановленные программы для различных типов филамента и возможность создания
-                    собственных программ.</p>
-
-                <div id="subsection-presets">
-                    <h2><i class="fas fa-cubes"></i> Предустановленные программы</h2>
-                    <p>Доступны следующие программы:</p>
-                    <ul>
-                        <li><strong>PLA</strong>: 50°C, 3 часа</li>
-                        <li><strong>PETG</strong>: 70°C, 3 часа</li>
-                        <li><strong>PA</strong>: 80°C, 3 часа</li>
-                        <li><strong>ABS</strong>: 85°C, 3 часа</li>
-                        <li><strong>TPU</strong>: 60°C, 3 часа</li>
-                        <li><strong>PVA</strong>: 45°C, 3 часа</li>
-                        <li><strong>PP</strong>: 70°C, 3 часа</li>
-                        <li><strong>ASA</strong>: 85°C, 3 часа</li>
-                        <li><strong>myProgram</strong>: собственна программа </li>
-                    </ul>
-                    <img src="screenshots/material.png" alt="Выбор программы" class="screenshot">
-                </div>
-
                 <div id="subsection-custom">
-                    <h2><i class="fas fa-user-cog"></i> Собственная программа</h2>
-                    <p>Для создания индивидуальной программы:</p>
+                    <h2><i class="fas fa-user-cog"></i> Программа</h2>
+                    <p>Для создания программы:</p>
                     <ol>
                         <li>Перейдите в настройки в раздел "Моя программа"</li>
                         <li>Установите желаемую температуру (0-120°C)</li>
@@ -725,7 +702,7 @@
                 <img src="screenshots/mode.png" alt="Ручной режим" class="screenshot">
                 <div id="subsection-auto">
                     <h2><i class="fas fa-cogs"></i> Автоматический режим</h2>
-                    <p>Полный цикл: сушка + поддержание влажности.</p>
+                    <p>Полный цикл: Нагрев + поддержание влажности.</p>
                     <ol>
                         <li>Выберите "Авто" в разделе "Выбор режима"</li>
                         <li>Выберите материал из списка</li>
@@ -734,10 +711,10 @@
                 </div>
 
                 <div id="subsection-dry">
-                    <h2><i class="fas fa-sun"></i> Режим сушки</h2>
-                    <p>Только процесс сушки без поддержания влажности.</p>
+                    <h2><i class="fas fa-sun"></i> Режим нагрева</h2>
+                    <p>Только процесс нагрева без поддержания влажности.</p>
                     <ol>
-                        <li>Выберите "Сушка" в режимах</li>
+                        <li>Выберите "Нагрев" в режимах</li>
                         <li>Выберите материал</li>
                         <li>Нажмите "Пуск"</li>
                     </ol>
@@ -745,7 +722,7 @@
 
                 <div id="subsection-humidity">
                     <h2><i class="fas fa-tint"></i> Режим поддержания</h2>
-                    <p>Только контроль влажности без предварительной сушки.</p>
+                    <p>Только контроль влажности без предварительного нагрева.</p>
                     <ol>
                         <li>Выберите "Поддержание" в режимах</li>
                         <li>Выберите материал</li>
